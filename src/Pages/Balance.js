@@ -50,15 +50,6 @@ export default function Balance() {
                     }
                 </>
             }
-            {/* { results.map( (result, index) =>{
-                return(
-                <BalanceCard
-                    key= {index}
-                    accountName = {result.accountName}
-                    accountNumber = {result.accountNumber}
-                    availableBal = {result.availableBal}
-                />)
-            })} */}
         </div>
     )
 }
