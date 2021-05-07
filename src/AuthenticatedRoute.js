@@ -10,7 +10,7 @@ const AuthenticatedRoute = ({component: Component,  ...rest}) => (
         storage.getItem('user') ? (
                 <Component {...props} />
         ) : (
-                <Redirect to="/balance" />
+                <Redirect to="/" />
             )}
     />
   );
