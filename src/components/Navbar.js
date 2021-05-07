@@ -27,7 +27,10 @@ export default function Header() {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ms-auto" navbar>
                         <NavItem>
-                            <NavLink>Signout</NavLink>
+                            <NavLink onClick={() => {
+                                console.log('clicked')
+                                localStorage.clear();
+                            }}>Signout</NavLink>
                         </NavItem>
                     </Nav>
 
