@@ -11,10 +11,27 @@ import { Container } from 'reactstrap';
 import AuthenticatedRoute from './AuthenticatedRoute';
 
 function App() {
+  const [token, setToken] = useState();
+
+  const checkLocalStorage = () => {
+    let currentUser = localStorage.getItem('user')
+    setToken(currentUser)
+  }
+
+  useEffect(() => {
+    checkLocalStorage()
+    return () => {
+    }
+  }, [])
+
+  if(!token) {
+    // return <><Login setToken={setToken} /><History /></>
+    return <><History /></>
+  }
   return (
     <>
       <div className='App mr-auto'>
-        <header>
+        {/* <header>
           <Header/>
         </header>
         <Container className="fluid">
@@ -27,8 +44,7 @@ function App() {
               <AuthenticatedRoute path='/history' component={History} />
             </Switch>
           </BrowserRouter>
-        </Container>
-
+        </Container> */}
       </div>
     </>
   );
