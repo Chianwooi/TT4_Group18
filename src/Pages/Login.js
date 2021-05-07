@@ -53,7 +53,6 @@ class Login extends Component {
             <div className="p-5 mb-4 bg-light rounded-3">
                 <Container className="fluid">
                     <h1 className="mx-auto">Please Login</h1>
-                    <h4>test: {this.state.username} {this.state.password}</h4>
                     <Form>
                         <FormGroup className="py-3">
                             <Label for="username">Username</Label>
