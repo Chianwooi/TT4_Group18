@@ -11,7 +11,6 @@ class User extends Model {
         userPass: password,
       }).then((user) => {
         localStorage.setItem("user", JSON.stringify(user));
-        console.log("set!", localStorage.getItem('user'))
         res(user);
       })
         .catch((err) => {
