@@ -7,7 +7,7 @@ const BalanceCard = (props) => {
     }, [])
 
     return (
-        <Card>
+        <Card className="py-2">
         <CardBody className="text-left">
             <CardTitle tag="h5">{props.accountName}</CardTitle>
             { props.accountName == 'Multiplier Account' && <CardText>Your Default Account</CardText>}

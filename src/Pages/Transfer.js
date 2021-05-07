@@ -63,7 +63,7 @@ export default function Transfer() {
 
     return (
         <div>
-            <Form>
+            <Form className="text-left">
                 <FormGroup className="py-3">
                     <Label for="payeeID">Payee ID</Label>
                     <Input type="text" name="payeeID" placeholder="Payee ID" value={userInputs.payeeID} onChange={handleChange} />

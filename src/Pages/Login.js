@@ -53,7 +53,7 @@ class Login extends Component {
             <div className="p-5 mb-4 bg-light rounded-3">
                 <Container className="fluid">
                     <h1 className="mx-auto">Please Login</h1>
-                    <Form>
+                    <Form className="text-left">
                         <FormGroup className="py-3">
                             <Label for="username">Username</Label>
                             <Input type="text" name="username" placeholder="Username" onChange={this.UonChangeHandler} />
