@@ -1,23 +1,37 @@
-import React from 'react'
-import { Navbar, Nav, Container } from 'react-bootstrap';
-
+import React, { useState } from 'react'
+import { Collapse, Nav, Navbar, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 
 export default function Header() {
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen);
     return (
         <>
-            <Navbar collapseOnSelect fixed='top' expand='sm' bg='dark' variant='dark'>
-                <Container>
-                    <Navbar.Toggle aria-controls='responsive-navbar-nav'/>
-                    <Navbar.Collapse id='responsive-navbar-nav'>
-                        <Nav>
-                            <Nav.Link href='/'>Home</Nav.Link>
-                            <Nav.Link href='/balance'>Balance</Nav.Link>
-                            <Nav.Link href='/transfer'>Transfer</Nav.Link>
-                            <Nav.Link href='/history'>History</Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+            <Navbar color="dark" dark expand="md" className="px-2">
+                <Nav className="me-auto" navbar>
+                        <NavItem>
+                            <NavLink href='/'>Home</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href='/balance'>Balance</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href='/transfer'>Transfer</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href='/history'>History</NavLink>
+                        </NavItem>
+                    </Nav>
+                <NavbarToggler onClick={toggle}/>
+                <Collapse isOpen={isOpen} navbar>
+                    <Nav className="ms-auto" navbar>
+                        <NavItem>
+                            <NavLink>Signout</NavLink>
+                        </NavItem>
+                    </Nav>
+
+                </Collapse>
+                
+              </Navbar>
         </>
     )
 }
