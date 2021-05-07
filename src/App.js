@@ -6,15 +6,27 @@ import Balance from './Pages/Balance'
 import Transfer from './Pages/Transfer'
 import History from './Pages/History'
 import Login from './Pages/Login'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Container } from 'reactstrap';
 
 function App() {
   const [token, setToken] = useState();
 
-  // if(!token) {
-  //   return <Login setToken={setToken} />
-  // }
+  const checkLocalStorage = () => {
+    let currentUser = localStorage.getItem('user')
+    setToken(currentUser)
+  }
+
+  useEffect(() => {
+    checkLocalStorage()
+    return () => {
+    }
+  }, [])
+
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
+
   return (
     <>
       <div className='App mr-auto'>
