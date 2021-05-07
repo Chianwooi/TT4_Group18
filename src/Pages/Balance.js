@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Container } from 'reactstrap';
 import BalanceCard from '../components/BalanceCard';
 
 export default function Balance() {
@@ -37,20 +38,20 @@ export default function Balance() {
     }, []);
 
     return (
-
-        <div>
-            <h1>testing balance Page</h1>
-            <p>This is the users current balance right now</p>
+        <Container className="mt-3 text-left">
+            <h2>Bank Balance</h2>
             {
-                results && <>
-                    {
-                        results.map((eachBalance,index)=>{
-                            return <BalanceCard {...eachBalance} ></BalanceCard>
-                        })
-                    }
-                </>
-            }
-        </div>
+            results && <>
+                {
+                    results.map((eachBalance,index)=>{
+                        return <BalanceCard {...eachBalance} ></BalanceCard>
+                    })
+                }
+            </>
+        }
+        </Container>
+
+        
     )
 }
 

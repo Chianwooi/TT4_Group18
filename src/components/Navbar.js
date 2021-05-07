@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import { Collapse, Nav, Navbar, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import { Button, Collapse, Nav, Navbar, NavbarText, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
     const user = localStorage.getItem('user')
-    console.log("dhsnd", user);
 
 
     function logout() {
@@ -37,7 +36,9 @@ export default function Header() {
                 <NavbarToggler onClick={toggle}/>
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ms-auto" navbar>
-                        <NavLink onClick={() => logout()}>Signout</NavLink>
+                        <NavItem>
+                           <Button color="link" onClick={() => logout()}>Signout</Button> 
+                        </NavItem>
                     </Nav>
 
                 </Collapse>
