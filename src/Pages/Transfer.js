@@ -58,6 +58,12 @@ export default function Transfer() {
     const handleChange = (e) =>{
         const name = e.target.name
         const value = e.target.value
+
+        if(name==="amount"){
+            if(!Number(value)){
+                alert("Numerical Input only!")
+            }
+        }
         setUserInputs({...userInputs, [name]: value})
     }
 
