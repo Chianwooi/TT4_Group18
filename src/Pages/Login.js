@@ -1,33 +1,37 @@
 import React, { Component } from 'react'
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap'
+import { withRouter } from "react-router-dom";
 import User from '../model/User'
-import {useHistory} from 'react-router-dom'
 
-export class Login extends Component {
+class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
             userName: "",
-            userPass: ""
+            userPass: "",
         }
         this.userApi = new User();
     }
-    
 
-    setToken = token => {
-        this.props.setToken(token)
-        
-    }
+    componentDidMount() {
+        let user = localStorage.getItem('user')
+        if(user != null){
+            this.props.history.push('/home')
+        }
+      }
+
 
     handleSubmit = event => {
         event.preventDefault()
-        
+        console.log(this.props)
         this.userApi.login(this.state.userName,this.state.userPass).then((_)=> {
-            this.setToken(this.userApi);
             // if it works , push to next screen
-            // this.props.history.push('/balance')
+            console.log(localStorage.getItem('user'))
+            this.props.history.push('/home')
+            
         })
         .catch((err)=>{
+            console.log(err)
             alert("Auth Failed")
         })
     }
@@ -43,7 +47,9 @@ export class Login extends Component {
     }
 
     render() {
+
         return (
+
             <div className="p-5 mb-4 bg-light rounded-3">
                 <Container className="fluid">
                     <h1 className="mx-auto">Please Login</h1>
@@ -55,7 +61,7 @@ export class Login extends Component {
                         </FormGroup>
                         <FormGroup className="py-3">
                             <Label for="password">Password</Label>
-                            <Input type="password" name="password" onChange={this.PonChangeHandler} />
+                            <Input type="password" name="password" placeholder="Password" onChange={this.PonChangeHandler} />
                         </FormGroup>
                         <Button onClick={this.handleSubmit}>Submit</Button>
                     </Form>
@@ -65,4 +71,4 @@ export class Login extends Component {
     }
 }
 
-export default Login
+export default withRouter(Login)

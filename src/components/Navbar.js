@@ -5,13 +5,18 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
+    function logout() {
+        console.log('Clicked')
+        window.localStorage.clear();
+        window.location.href = '/';
+    }
 
     return (
         <>
             <Navbar color="dark" dark expand="md" className="px-2">
                 <Nav className="me-auto" navbar>
                         <NavItem>
-                            <NavLink href='/'>Home</NavLink>
+                            <NavLink href='/home'>Home</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href='/balance'>Balance</NavLink>
@@ -26,12 +31,7 @@ export default function Header() {
                 <NavbarToggler onClick={toggle}/>
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ms-auto" navbar>
-                        <NavItem>
-                            <NavLink onClick={() => {
-                                console.log('clicked')
-                                localStorage.clear();
-                            }}>Signout</NavLink>
-                        </NavItem>
+                        <NavLink onClick={() => logout()}>Signout</NavLink>
                     </Nav>
 
                 </Collapse>
