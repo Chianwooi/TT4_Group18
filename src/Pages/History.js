@@ -5,8 +5,9 @@ export default function History() {
 
     const [results, setResults] = useState([]);
 
-    let currentUser = JSON.parse(window.localStorage.getItem('user'));
+    let currentUser = JSON.parse(localStorage.getItem('user'));
     // console.log(currentUser.custID);
+    // console.log("hi");
 
     // useEffect(() => {
     // const requestOptions = {

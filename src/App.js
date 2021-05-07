@@ -11,8 +11,6 @@ import { Container } from 'reactstrap';
 import AuthenticatedRoute from './AuthenticatedRoute';
 
 function App() {
-<<<<<<< HEAD
-=======
   const [token, setToken] = useState();
 
   const checkLocalStorage = () => {
@@ -30,8 +28,6 @@ function App() {
     // return <><Login setToken={setToken} /><History /></>
     return <><History /></>
   }
-
->>>>>>> 52797cc (tables for histories)
   return (
     <>
       <div className='App mr-auto'>
