@@ -4,6 +4,8 @@ import { Collapse, Nav, Navbar, NavbarToggler, NavItem, NavLink } from 'reactstr
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
+
+
     return (
         <>
             <Navbar color="dark" dark expand="md" className="px-2">
